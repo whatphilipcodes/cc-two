@@ -1,8 +1,8 @@
-# rone
+# Aberr
 
-> experimental multiplattform application development in `C++` for Creative Technologies module `cc-01`.
+> experimental application development in `C++` for Creative Technologies module `cc-02`.
 
-Bare-bones RAW photo editing software for `iOS` and `macOS`.
+Bare-bones RAW photo editing software for `iOS`.
 
 
 ### Learning Objectives
@@ -10,10 +10,10 @@ Bare-bones RAW photo editing software for `iOS` and `macOS`.
 - [ ] handling `RAW image data` in `C++`
 - [ ] implementing a simple `exposure control`
 - [ ] implementing a simple `contrast control`
-- [ ] deployment to multiple client platforms
 
-### Proposed Schedule
+### time tracking
 
-| **Working Period**        | Task                                      |
-| ------------------------- | ----------------------------------------- |
-| `2025-07-14 - 2025-07-31` | setup and further implementation planning |
+| **Day**      | Task                             | Hours |
+| ------------ | -------------------------------- | ----- |
+| `2025-08-15` | begin setup and planning         | 2     |
+| `2025-08-16` | getting swift and cpp to interop | 6     |
