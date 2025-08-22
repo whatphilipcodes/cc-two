@@ -6,7 +6,7 @@
             "args": [],
             "cwd": "${workspaceFolder:cc-two}/cpp",
             "name": "Debug ATMCLI (cpp)",
-            "program": "${workspaceFolder:cc-two}/cpp/build/build-swift/debug/ATMCLI",
+            "program": "${workspaceFolder:cc-two}/cpp/.build/debug/ATMCLI",
             "preLaunchTask": "swift: Build Debug ATMCLI (cpp)"
         },
         {
@@ -15,7 +15,7 @@
             "args": [],
             "cwd": "${workspaceFolder:cc-two}/cpp",
             "name": "Release ATMCLI (cpp)",
-            "program": "${workspaceFolder:cc-two}/cpp/build/build-swift/release/ATMCLI",
+            "program": "${workspaceFolder:cc-two}/cpp/.build/release/ATMCLI",
             "preLaunchTask": "swift: Build Release ATMCLI (cpp)"
         }
     ]
