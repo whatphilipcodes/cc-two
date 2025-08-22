@@ -6,105 +6,115 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D4D4E9DE2E58DF5B00673513 /* ATMPackage in Frameworks */ = {isa = PBXBuildFile; productRef = D4D4E9DD2E58DF5B00673513 /* ATMPackage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		D4B1CD222E50D978003B0053 /* Aberr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Aberr.app; path = "/Users/philip/Documents/Repos/ctech/submissions/cc-two/build/Debug-iphoneos/Aberr.app"; sourceTree = "<absolute>"; };
+		D43073912E58D3CC00974206 /* ATMProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D4E5D9EE2E50CAB200E9ED3D /* Aberr */ = {
+		D43073932E58D3CC00974206 /* ATMProj */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Aberr;
-			sourceTree = "<group>";
-		};
-		D4E5DA062E50CDAE00E9ED3D /* cpp */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = cpp;
+			path = ATMProj;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D4E5D9E92E50CAB200E9ED3D /* Frameworks */ = {
+		D430738E2E58D3CC00974206 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D4E9DE2E58DF5B00673513 /* ATMPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D4E5D9E32E50CAB200E9ED3D = {
+		D43073882E58D3CB00974206 = {
 			isa = PBXGroup;
 			children = (
-				D4E5D9EE2E50CAB200E9ED3D /* Aberr */,
-				D4E5DA062E50CDAE00E9ED3D /* cpp */,
+				D43073932E58D3CC00974206 /* ATMProj */,
+				D43073922E58D3CC00974206 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		D43073922E58D3CC00974206 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D43073912E58D3CC00974206 /* ATMProj.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4E5D9EB2E50CAB200E9ED3D /* Aberr */ = {
+		D43073902E58D3CC00974206 /* ATMProj */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4E5D9F72E50CAB400E9ED3D /* Build configuration list for PBXNativeTarget "Aberr" */;
+			buildConfigurationList = D430739C2E58D3CD00974206 /* Build configuration list for PBXNativeTarget "ATMProj" */;
 			buildPhases = (
-				D4E5D9E82E50CAB200E9ED3D /* Sources */,
-				D4E5D9E92E50CAB200E9ED3D /* Frameworks */,
-				D4E5D9EA2E50CAB200E9ED3D /* Resources */,
+				D430738D2E58D3CC00974206 /* Sources */,
+				D430738E2E58D3CC00974206 /* Frameworks */,
+				D430738F2E58D3CC00974206 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D4E5D9EE2E50CAB200E9ED3D /* Aberr */,
-				D4E5DA062E50CDAE00E9ED3D /* cpp */,
+				D43073932E58D3CC00974206 /* ATMProj */,
 			);
-			name = Aberr;
+			name = ATMProj;
 			packageProductDependencies = (
+				D4D4E9DD2E58DF5B00673513 /* ATMPackage */,
 			);
-			productName = Aberr;
-			productReference = D4B1CD222E50D978003B0053 /* Aberr.app */;
+			productName = ATMProj;
+			productReference = D43073912E58D3CC00974206 /* ATMProj.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D4E5D9E42E50CAB200E9ED3D /* Project object */ = {
+		D43073892E58D3CB00974206 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
-					D4E5D9EB2E50CAB200E9ED3D = {
+					D43073902E58D3CC00974206 = {
 						CreatedOnToolsVersion = 16.4;
-						LastSwiftMigration = 1640;
 					};
 				};
 			};
-			buildConfigurationList = D4E5D9E72E50CAB200E9ED3D /* Build configuration list for PBXProject "Aberr" */;
+			buildConfigurationList = D430738C2E58D3CB00974206 /* Build configuration list for PBXProject "ATMProj" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = D4E5D9E32E50CAB200E9ED3D;
+			mainGroup = D43073882E58D3CB00974206;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D4D4E9DC2E58DF5B00673513 /* XCLocalSwiftPackageReference "../cpp" */,
+			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = D4E5D9E32E50CAB200E9ED3D;
+			productRefGroup = D43073922E58D3CC00974206 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4E5D9EB2E50CAB200E9ED3D /* Aberr */,
+				D43073902E58D3CC00974206 /* ATMProj */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D4E5D9EA2E50CAB200E9ED3D /* Resources */ = {
+		D430738F2E58D3CC00974206 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -114,7 +124,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D4E5D9E82E50CAB200E9ED3D /* Sources */ = {
+		D430738D2E58D3CC00974206 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -124,7 +134,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D4E5D9F52E50CAB400E9ED3D /* Debug */ = {
+		D430739A2E58D3CD00974206 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -184,12 +194,11 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		D4E5D9F62E50CAB400E9ED3D /* Release */ = {
+		D430739B2E58D3CD00974206 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,108 +251,104 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		D4E5D9F82E50CAB400E9ED3D /* Debug */ = {
+		D430739D2E58D3CD00974206 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DABZSXFJFR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = whatphilipdoes.Aberr;
+				PRODUCT_BUNDLE_IDENTIFIER = whatphilipcodes.ATMProj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "cpp/Aberr-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D4E5D9F92E50CAB400E9ED3D /* Release */ = {
+		D430739E2E58D3CD00974206 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DABZSXFJFR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = whatphilipdoes.Aberr;
+				PRODUCT_BUNDLE_IDENTIFIER = whatphilipcodes.ATMProj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "cpp/Aberr-Bridging-Header.h";
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4E5D9E72E50CAB200E9ED3D /* Build configuration list for PBXProject "Aberr" */ = {
+		D430738C2E58D3CB00974206 /* Build configuration list for PBXProject "ATMProj" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4E5D9F52E50CAB400E9ED3D /* Debug */,
-				D4E5D9F62E50CAB400E9ED3D /* Release */,
+				D430739A2E58D3CD00974206 /* Debug */,
+				D430739B2E58D3CD00974206 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4E5D9F72E50CAB400E9ED3D /* Build configuration list for PBXNativeTarget "Aberr" */ = {
+		D430739C2E58D3CD00974206 /* Build configuration list for PBXNativeTarget "ATMProj" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4E5D9F82E50CAB400E9ED3D /* Debug */,
-				D4E5D9F92E50CAB400E9ED3D /* Release */,
+				D430739D2E58D3CD00974206 /* Debug */,
+				D430739E2E58D3CD00974206 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D4D4E9DC2E58DF5B00673513 /* XCLocalSwiftPackageReference "../cpp" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../cpp;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D4D4E9DD2E58DF5B00673513 /* ATMPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ATMPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = D4E5D9E42E50CAB200E9ED3D /* Project object */;
+	rootObject = D43073892E58D3CB00974206 /* Project object */;
 }

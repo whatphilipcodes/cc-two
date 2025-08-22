@@ -1,0 +1,35 @@
+//
+//  ContentView.swift
+//  ATMProj
+//
+//  Created by Philip Gerdes on 22.08.25.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    @State private var input = ""
+    @ObservedObject var viewModel: ATMViewModel
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("🏧 ATM Machine 🏧").font(.largeTitle)
+            Text("Balance: \(viewModel.balance)").font(.title2)
+            TextField("Amount", text: $input)
+                .keyboardType(.numberPad)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            Button("Withdraw") {
+                viewModel.withdraw(amount: input)
+                input = ""
+            }
+            .buttonStyle(.borderedProminent)
+            Spacer()
+        }
+        .padding()
+    }
+}
+
+#Preview {
+    ContentView(viewModel: ATMViewModel())
+}

@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:cc-two}/cpp",
+            "name": "Debug ATMCLI (cpp)",
+            "program": "${workspaceFolder:cc-two}/cpp/build/build-swift/debug/ATMCLI",
+            "preLaunchTask": "swift: Build Debug ATMCLI (cpp)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:cc-two}/cpp",
+            "name": "Release ATMCLI (cpp)",
+            "program": "${workspaceFolder:cc-two}/cpp/build/build-swift/release/ATMCLI",
+            "preLaunchTask": "swift: Build Release ATMCLI (cpp)"
+        }
+    ]
+}
