@@ -15,12 +15,12 @@ Bare-bones RAW photo editing software for `iOS`.
 
 ### Time Tracking
 
-| **Day**      | Task                                                                                                  | Hours |
-| ------------ | ----------------------------------------------------------------------------------------------------- | ----- |
-| `2025-08-15` | begin setup and planning                                                                              | 2     |
-| `2025-08-16` | getting swift and cpp to interop                                                                      | 6     |
-| `2025-08-18` | wasting time with vcpkg                                                                               | 6     |
-| `2025-08-22` | lib import based on this [guide](https://arturgruchala.com/swift-and-c-interoperability-in-practice/) | 8     |
+| **Day**      | Task                                                                                                   | Hours |
+| ------------ | ------------------------------------------------------------------------------------------------------ | ----- |
+| `2025-08-15` | begin setup and planning                                                                               | 2     |
+| `2025-08-16` | getting swift and cpp to interop                                                                       | 6     |
+| `2025-08-18` | wasting time with vcpkg                                                                                | 6     |
+| `2025-08-22` | refactoring based on this [guide](https://arturgruchala.com/swift-and-c-interoperability-in-practice/) | 8     |
 
 
 ### Acknowledgements
