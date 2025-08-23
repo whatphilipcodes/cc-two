@@ -9,9 +9,13 @@ Bare-bones RAW photo editing software for `iOS`.
 
 ### Learning Objectives
 
-- [ ] handling `RAW image data` in `C++`
-- [ ] implementing a simple `exposure control`
-- [ ] implementing a simple `contrast control`
+- [x] getting `swift` and `c++` interop to work in an ios app
+- [ ] importing `libraw` into the project
+  - [x] figuring out git submodules for upgradeability
+  - [ ] build step to integrate with existing pipeline 
+- [ ] handling `RAW image data` in `c++`
+  - [ ] implementing a simple `exposure control`
+  - [ ] implementing a simple `contrast control`
 
 ### Time Tracking
 
@@ -21,6 +25,7 @@ Bare-bones RAW photo editing software for `iOS`.
 | `2025-08-16` | getting swift and cpp to interop                                                                       | 6     |
 | `2025-08-18` | wasting time with vcpkg                                                                                | 6     |
 | `2025-08-22` | refactoring based on this [guide](https://arturgruchala.com/swift-and-c-interoperability-in-practice/) | 8     |
+| `2025-08-23` | importing, building and using `LibRaw` in ios app                                                      | 8     |
 
 
 ### Acknowledgements
