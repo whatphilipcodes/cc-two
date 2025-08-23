@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4298CF92E59B7CC00C4FF24 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D4298CF72E59B7C600C4FF24 /* .gitignore */; };
 		D4D4E9DE2E58DF5B00673513 /* ATMPackage in Frameworks */ = {isa = PBXBuildFile; productRef = D4D4E9DD2E58DF5B00673513 /* ATMPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4298CF72E59B7C600C4FF24 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D43073912E58D3CC00974206 /* ATMProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 			children = (
 				D43073932E58D3CC00974206 /* ATMProj */,
 				D43073922E58D3CC00974206 /* Products */,
+				D4298CF72E59B7C600C4FF24 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +121,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4298CF92E59B7CC00C4FF24 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
