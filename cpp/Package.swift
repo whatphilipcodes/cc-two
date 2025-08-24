@@ -10,8 +10,13 @@ let package = Package(
     ],
     targets: [
         // C++ library target
+        .binaryTarget(
+            name: "LibRaw",
+            path: "External/build/LibRaw/local/LibRaw.xcframework"
+        ),
         .target(
             name: "ATMWithdrawCpp",
+            dependencies: ["LibRaw"],
             path: "Sources/ATMWithdrawCpp",
             publicHeadersPath: "include",
             cxxSettings: [

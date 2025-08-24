@@ -3,7 +3,7 @@ BUILD_DIR = .build-cm
 CMAKE = cmake
 CMAKE_BUILD_TYPE = Release
 
-LIBRAW_BUILD_SCRIPT = External/tools/LibRaw/build_libraw_ios.sh
+LIBRAW_BUILD_SCRIPT = External/tools/LibRaw/build_libraw.sh
 LIBRAW_XCFRAMEWORK = External/build/LibRaw/local/LibRaw.xcframework
 
 SPM = swift build --configuration release
