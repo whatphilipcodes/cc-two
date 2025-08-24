@@ -14,7 +14,7 @@ Bare-bones RAW photo editing software for `iOS`.
 `LibRaw` is present as a submodule in this repository. To run a full library compilation and install `cd cpp/` and run:
 
 ```sh
-make --build-libs
+make build-libs
 ```
 
 Afterwards you can use the `open xcodeproj` task to build the ios app (either in simulator or on-device). The pure `make` command will rebuild the swift package and the `cpp` codebase in `Sources/` only.

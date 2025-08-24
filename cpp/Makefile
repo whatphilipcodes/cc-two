@@ -10,24 +10,24 @@ SPM = swift build --configuration release
 SPM_RUN = swift run AberrCLI
 
 # Phony targets
-.PHONY: all --build-libs build-libraw build-cpp build-swift run clean help
+.PHONY: all build-libs build-libraw build-cpp build-swift run clean help
 
 # Default: fast build (skip third-party libs)
 all: build-cpp build-swift run
 
 # Full build including third-party libs
---build-libs: build-libraw build-cpp build-swift run
+build-libs: build-libraw build-cpp build-swift run
 
 # Build LibRaw XCFramework for iOS
 build-libraw:
 	@echo "Building LibRaw..."
 	@bash $(LIBRAW_BUILD_SCRIPT)
 
-# Build your C++ library (assumes libs already built unless you used --build-libs)
+# Build your C++ library (assumes libs already built unless you used build-libs)
 build-cpp:
 	@if [ ! -d "$(LIBRAW_XCFRAMEWORK)" ]; then \
 		echo "[ERROR] Missing LibRaw XCFramework at $(LIBRAW_XCFRAMEWORK)"; \
-		echo "        Run: make --build-libs"; \
+		echo "        Run: make build-libs"; \
 		exit 1; \
 	fi
 	@mkdir -p $(BUILD_DIR)
@@ -47,7 +47,7 @@ clean:
 
 help:
 	@echo "Usage:" 
-	@echo "  make                # Build project (skip rebuilding third-party libs)"
-	@echo "  make --build-libs    # Build third-party libs then project"
-	@echo "  make build-libraw    # Only (re)build LibRaw"
-	@echo "  make clean           # Clean build artifacts"
+	@echo "  make              # Build project (skip rebuilding third-party libs)"
+	@echo "  make build-libs   # Build third-party libs then project"
+	@echo "  make build-libraw # Only (re)build LibRaw"
+	@echo "  make clean        # Clean build artifacts"
