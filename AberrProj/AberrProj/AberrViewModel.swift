@@ -8,7 +8,7 @@
 import ATMPackage
 import Foundation
 
-class ATMViewModel: ObservableObject {
+class AberrViewModel: ObservableObject {
     @Published var balance: Int32
     private var atm: ATMWrapper
     @Published var libRawVersion: String = ""

@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct ATMProjApp: App {
+struct AberrProjApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ATMViewModel())
+            ContentView(viewModel: AberrViewModel())
         }
     }
 }

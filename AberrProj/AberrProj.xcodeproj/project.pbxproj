@@ -13,13 +13,13 @@
 
 /* Begin PBXFileReference section */
 		D4298CF72E59B7C600C4FF24 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		D43073912E58D3CC00974206 /* ATMProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4F5A3DF2E5B2C5400326413 /* AberrProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AberrProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D43073932E58D3CC00974206 /* ATMProj */ = {
+		D4F5A3CD2E5B2BAE00326413 /* AberrProj */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ATMProj;
+			path = AberrProj;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -39,26 +39,18 @@
 		D43073882E58D3CB00974206 = {
 			isa = PBXGroup;
 			children = (
-				D43073932E58D3CC00974206 /* ATMProj */,
-				D43073922E58D3CC00974206 /* Products */,
+				D4F5A3CD2E5B2BAE00326413 /* AberrProj */,
 				D4298CF72E59B7C600C4FF24 /* .gitignore */,
+				D4F5A3DF2E5B2C5400326413 /* AberrProj.app */,
 			);
-			sourceTree = "<group>";
-		};
-		D43073922E58D3CC00974206 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D43073912E58D3CC00974206 /* ATMProj.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D43073902E58D3CC00974206 /* ATMProj */ = {
+		D43073902E58D3CC00974206 /* AberrProj */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D430739C2E58D3CD00974206 /* Build configuration list for PBXNativeTarget "ATMProj" */;
+			buildConfigurationList = D430739C2E58D3CD00974206 /* Build configuration list for PBXNativeTarget "AberrProj" */;
 			buildPhases = (
 				D430738D2E58D3CC00974206 /* Sources */,
 				D430738E2E58D3CC00974206 /* Frameworks */,
@@ -69,14 +61,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D43073932E58D3CC00974206 /* ATMProj */,
+				D4F5A3CD2E5B2BAE00326413 /* AberrProj */,
 			);
-			name = ATMProj;
+			name = AberrProj;
 			packageProductDependencies = (
 				D4D4E9DD2E58DF5B00673513 /* ATMPackage */,
 			);
 			productName = ATMProj;
-			productReference = D43073912E58D3CC00974206 /* ATMProj.app */;
+			productReference = D4F5A3DF2E5B2C5400326413 /* AberrProj.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -94,7 +86,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D430738C2E58D3CB00974206 /* Build configuration list for PBXProject "ATMProj" */;
+			buildConfigurationList = D430738C2E58D3CB00974206 /* Build configuration list for PBXProject "AberrProj" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -107,11 +99,11 @@
 				D4D4E9DC2E58DF5B00673513 /* XCLocalSwiftPackageReference "../cpp" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = D43073922E58D3CC00974206 /* Products */;
+			productRefGroup = D43073882E58D3CB00974206;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D43073902E58D3CC00974206 /* ATMProj */,
+				D43073902E58D3CC00974206 /* AberrProj */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +261,8 @@
 				DEVELOPMENT_TEAM = DABZSXFJFR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Aberr;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -279,7 +273,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = whatphilipcodes.ATMProj;
+				PRODUCT_BUNDLE_IDENTIFIER = whatphilipcodes.Aberr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_INTEROP_MODE = objcxx;
@@ -298,6 +292,8 @@
 				DEVELOPMENT_TEAM = DABZSXFJFR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Aberr;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,7 +304,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = whatphilipcodes.ATMProj;
+				PRODUCT_BUNDLE_IDENTIFIER = whatphilipcodes.Aberr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_INTEROP_MODE = objcxx;
@@ -320,7 +316,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D430738C2E58D3CB00974206 /* Build configuration list for PBXProject "ATMProj" */ = {
+		D430738C2E58D3CB00974206 /* Build configuration list for PBXProject "AberrProj" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D430739A2E58D3CD00974206 /* Debug */,
@@ -329,7 +325,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D430739C2E58D3CD00974206 /* Build configuration list for PBXNativeTarget "ATMProj" */ = {
+		D430739C2E58D3CD00974206 /* Build configuration list for PBXNativeTarget "AberrProj" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D430739D2E58D3CD00974206 /* Debug */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var input = ""
-    @ObservedObject var viewModel: ATMViewModel
+    @ObservedObject var viewModel: AberrViewModel
 
     var body: some View {
         VStack(spacing: 20) {
@@ -34,5 +34,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(viewModel: ATMViewModel())
+    ContentView(viewModel: AberrViewModel())
 }
