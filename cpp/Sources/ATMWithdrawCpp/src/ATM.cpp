@@ -1,14 +1,11 @@
 #include "ATMWithdrawCpp/ATM.h"
 #include <libraw/libraw.h>
-#include <iostream>
+#include <string>
 
 ATM::ATM(int initialBalance) : balance(initialBalance) {}
 
 bool ATM::withdraw(int amount)
 {
-    LibRaw rawProcessor;
-    std::cout << "LibRaw version: " << LibRaw::version() << std::endl;
-
     if (balance >= amount)
     {
         balance -= amount;
@@ -20,4 +17,9 @@ bool ATM::withdraw(int amount)
 int ATM::getBalance() const
 {
     return balance;
+}
+
+const char *ATM::getLibRawVersion() const
+{
+    return LibRaw::version();
 }

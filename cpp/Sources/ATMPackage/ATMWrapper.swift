@@ -14,4 +14,8 @@ public struct ATMWrapper {
     public func getBalance() -> Int32 {
         return underlying.getBalance()
     }
+
+    public func libRawVersionInfo() -> String {
+        String(cString: underlying.getLibRawVersion())
+    }
 }

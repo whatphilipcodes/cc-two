@@ -15,6 +15,9 @@ struct ContentView: View {
         VStack(spacing: 20) {
             Text("🏧 ATM Machine 🏧").font(.largeTitle)
             Text("Balance: \(viewModel.balance)").font(.title2)
+            Text(viewModel.libRawVersion)
+                .font(.footnote.monospaced())
+                .padding(.horizontal)
             TextField("Amount", text: $input)
                 .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
