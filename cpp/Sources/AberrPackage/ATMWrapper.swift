@@ -1,10 +1,10 @@
-import ATMWithdrawCpp
+import AberrWithdrawCpp
 
-public struct ATMWrapper {
-    private var underlying: ATM
+public struct AberrWrapper {
+    private var underlying: Aberr
 
     public init(initialBalance: Int32) {
-        underlying = ATM(initialBalance)
+        underlying = Aberr(initialBalance)
     }
 
     public mutating func withdraw(amount: Int32) -> Bool {

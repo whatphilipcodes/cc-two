@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(ATMWithdrawCpp LANGUAGES CXX)
+project(AberrWithdrawCpp LANGUAGES CXX)
 
 # Paths to LibRaw XCFramework
 set(LIBRAW_XCFRAMEWORK "${CMAKE_CURRENT_SOURCE_DIR}/External/build/LibRaw/local/LibRaw.xcframework")
@@ -15,23 +15,23 @@ if(NOT EXISTS ${LIBRAW_HEADERS})
 endif()
 
 # Your C++ library
-add_library(ATMWithdrawCpp STATIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ATMWithdrawCpp/src/ATM.cpp
+add_library(AberrWithdrawCpp STATIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/AberrWithdrawCpp/src/Aberr.cpp
 )
 
 # Include directories
-target_include_directories(ATMWithdrawCpp PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ATMWithdrawCpp/include
+target_include_directories(AberrWithdrawCpp PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/AberrWithdrawCpp/include
     ${LIBRAW_HEADERS}
 )
 
 # Link LibRaw
-target_link_libraries(ATMWithdrawCpp PUBLIC
+target_link_libraries(AberrWithdrawCpp PUBLIC
     ${LIBRAW_LIB}
 )
 
 # Target properties
-set_target_properties(ATMWithdrawCpp PROPERTIES
+set_target_properties(AberrWithdrawCpp PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}

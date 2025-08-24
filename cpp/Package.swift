@@ -2,11 +2,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "ATMProject",
+    name: "AberrProject",
     platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
-        .library(name: "ATMPackage", targets: ["ATMPackage"]),
-        .executable(name: "ATMCLI", targets: ["ATMCLI"]),
+        .library(name: "AberrPackage", targets: ["AberrPackage"]),
+        .executable(name: "AberrCLI", targets: ["AberrCLI"]),
     ],
     targets: [
         // C++ library target
@@ -15,9 +15,9 @@ let package = Package(
             path: "External/build/LibRaw/local/LibRaw.xcframework"
         ),
         .target(
-            name: "ATMWithdrawCpp",
+            name: "AberrWithdrawCpp",
             dependencies: ["LibRaw"],
-            path: "Sources/ATMWithdrawCpp",
+            path: "Sources/AberrWithdrawCpp",
             publicHeadersPath: "include",
             cxxSettings: [
                 .headerSearchPath("include"),
@@ -29,9 +29,9 @@ let package = Package(
         ),
         // Swift wrapper target
         .target(
-            name: "ATMPackage",
-            dependencies: ["ATMWithdrawCpp"],
-            path: "Sources/ATMPackage",
+            name: "AberrPackage",
+            dependencies: ["AberrWithdrawCpp"],
+            path: "Sources/AberrPackage",
             swiftSettings: [
                 // enable C++ interop
                 .interoperabilityMode(.Cxx)
@@ -39,9 +39,9 @@ let package = Package(
         ),
         // CLI executable target
         .executableTarget(
-            name: "ATMCLI",
-            dependencies: ["ATMPackage"],
-            path: "Sources/ATMCLI",
+            name: "AberrCLI",
+            dependencies: ["AberrPackage"],
+            path: "Sources/AberrCLI",
             swiftSettings: [
                 .interoperabilityMode(.Cxx)
             ]

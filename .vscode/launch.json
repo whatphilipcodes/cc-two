@@ -5,18 +5,18 @@
             "request": "launch",
             "args": [],
             "cwd": "${workspaceFolder:cc-two}/cpp",
-            "name": "Debug ATMCLI (cpp)",
-            "program": "${workspaceFolder:cc-two}/cpp/.build/debug/ATMCLI",
-            "preLaunchTask": "swift: Build Debug ATMCLI (cpp)"
+            "name": "Debug AberrCLI (cpp)",
+            "program": "${workspaceFolder:cc-two}/cpp/.build/debug/AberrCLI",
+            "preLaunchTask": "swift: Build Debug AberrCLI (cpp)"
         },
         {
             "type": "swift",
             "request": "launch",
             "args": [],
             "cwd": "${workspaceFolder:cc-two}/cpp",
-            "name": "Release ATMCLI (cpp)",
-            "program": "${workspaceFolder:cc-two}/cpp/.build/release/ATMCLI",
-            "preLaunchTask": "swift: Build Release ATMCLI (cpp)"
+            "name": "Release AberrCLI (cpp)",
+            "program": "${workspaceFolder:cc-two}/cpp/.build/release/AberrCLI",
+            "preLaunchTask": "swift: Build Release AberrCLI (cpp)"
         }
     ]
 }

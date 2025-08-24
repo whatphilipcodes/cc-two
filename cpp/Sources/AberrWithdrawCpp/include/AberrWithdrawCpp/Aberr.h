@@ -2,10 +2,10 @@
 
 #include <string>
 
-class ATM
+class Aberr
 {
 public:
-    ATM(int initialBalance);
+    Aberr(int initialBalance);
     bool withdraw(int amount);
     int getBalance() const;
 

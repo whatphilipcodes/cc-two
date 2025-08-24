@@ -1,10 +1,10 @@
-#include "ATMWithdrawCpp/ATM.h"
+#include "AberrWithdrawCpp/Aberr.h"
 #include <libraw/libraw.h>
 #include <string>
 
-ATM::ATM(int initialBalance) : balance(initialBalance) {}
+Aberr::Aberr(int initialBalance) : balance(initialBalance) {}
 
-bool ATM::withdraw(int amount)
+bool Aberr::withdraw(int amount)
 {
     if (balance >= amount)
     {
@@ -14,12 +14,12 @@ bool ATM::withdraw(int amount)
     return false;
 }
 
-int ATM::getBalance() const
+int Aberr::getBalance() const
 {
     return balance;
 }
 
-const char *ATM::getLibRawVersion() const
+const char *Aberr::getLibRawVersion() const
 {
     return LibRaw::version();
 }
