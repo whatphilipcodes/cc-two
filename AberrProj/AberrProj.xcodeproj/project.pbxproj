@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D4298CF92E59B7CC00C4FF24 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D4298CF72E59B7C600C4FF24 /* .gitignore */; };
-		D4D4E9DE2E58DF5B00673513 /* ATMPackage in Frameworks */ = {isa = PBXBuildFile; productRef = D4D4E9DD2E58DF5B00673513 /* ATMPackage */; };
+		D445FE9F2E5B325A00C295B0 /* AberrPackage in Frameworks */ = {isa = PBXBuildFile; productRef = D445FE9E2E5B325A00C295B0 /* AberrPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D4E9DE2E58DF5B00673513 /* ATMPackage in Frameworks */,
+				D445FE9F2E5B325A00C295B0 /* AberrPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +65,7 @@
 			);
 			name = AberrProj;
 			packageProductDependencies = (
-				D4D4E9DD2E58DF5B00673513 /* ATMPackage */,
+				D445FE9E2E5B325A00C295B0 /* AberrPackage */,
 			);
 			productName = ATMProj;
 			productReference = D4F5A3DF2E5B2C5400326413 /* AberrProj.app */;
@@ -344,9 +344,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D4D4E9DD2E58DF5B00673513 /* ATMPackage */ = {
+		D445FE9E2E5B325A00C295B0 /* AberrPackage */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ATMPackage;
+			package = D4D4E9DC2E58DF5B00673513 /* XCLocalSwiftPackageReference "../cpp" */;
+			productName = AberrPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

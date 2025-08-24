@@ -26,7 +26,7 @@ Bare-bones RAW photo editing software for `iOS`.
 | `2025-08-18` | wasting time with vcpkg                                                                                | 6     |
 | `2025-08-22` | refactoring based on this [guide](https://arturgruchala.com/swift-and-c-interoperability-in-practice/) | 8     |
 | `2025-08-23` | attempting to get `LibRaw` working                                                                     | 8     |
-| `2025-08-24` | finally getting `LibRaw` to compile and build                                                          | tbd   |
+| `2025-08-24` | finally getting `LibRaw` to compile and build & rough cpp package architecture rework                  | tbd   |
 
 
 ### Acknowledgements
