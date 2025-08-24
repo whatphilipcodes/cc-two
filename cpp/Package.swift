@@ -22,6 +22,9 @@ let package = Package(
             cxxSettings: [
                 .headerSearchPath("include"),
                 .define("SWIFT_PACKAGE"),
+            ],
+            linkerSettings: [
+                .linkedLibrary("z")
             ]
         ),
         // Swift wrapper target
