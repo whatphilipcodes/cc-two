@@ -15,9 +15,9 @@ let package = Package(
             path: "External/build/LibRaw/local/LibRaw.xcframework"
         ),
         .target(
-            name: "AberrWithdrawCpp",
+            name: "AberrCore",
             dependencies: ["LibRaw"],
-            path: "Sources/AberrWithdrawCpp",
+            path: "Sources/AberrCore",
             publicHeadersPath: "include",
             cxxSettings: [
                 .headerSearchPath("include"),
@@ -30,7 +30,7 @@ let package = Package(
         // Swift wrapper target
         .target(
             name: "AberrPackage",
-            dependencies: ["AberrWithdrawCpp"],
+            dependencies: ["AberrCore"],
             path: "Sources/AberrPackage",
             swiftSettings: [
                 // enable C++ interop

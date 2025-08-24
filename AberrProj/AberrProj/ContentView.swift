@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  ATMProj
+//  AberrProj
 //
 //  Created by Philip Gerdes on 22.08.25.
 //
@@ -13,7 +13,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("🏧 ATM Machine 🏧").font(.largeTitle)
+            Text("🏧 Aberr Machine 🏧").font(.largeTitle)
             Text("Balance: \(viewModel.balance)").font(.title2)
             Text(viewModel.libRawVersion)
                 .font(.footnote.monospaced())

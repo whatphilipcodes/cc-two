@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(AberrWithdrawCpp LANGUAGES CXX)
+project(AberrCore LANGUAGES CXX)
 
 # Paths to LibRaw XCFramework
 set(LIBRAW_XCFRAMEWORK "${CMAKE_CURRENT_SOURCE_DIR}/External/build/LibRaw/local/LibRaw.xcframework")
@@ -15,23 +15,23 @@ if(NOT EXISTS ${LIBRAW_HEADERS})
 endif()
 
 # Your C++ library
-add_library(AberrWithdrawCpp STATIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/AberrWithdrawCpp/src/Aberr.cpp
+add_library(AberrCore STATIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/AberrCore/src/Aberr.cpp
 )
 
 # Include directories
-target_include_directories(AberrWithdrawCpp PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/AberrWithdrawCpp/include
+target_include_directories(AberrCore PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/AberrCore/include
     ${LIBRAW_HEADERS}
 )
 
 # Link LibRaw
-target_link_libraries(AberrWithdrawCpp PUBLIC
+target_link_libraries(AberrCore PUBLIC
     ${LIBRAW_LIB}
 )
 
 # Target properties
-set_target_properties(AberrWithdrawCpp PROPERTIES
+set_target_properties(AberrCore PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}

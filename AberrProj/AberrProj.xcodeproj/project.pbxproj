@@ -67,7 +67,7 @@
 			packageProductDependencies = (
 				D445FE9E2E5B325A00C295B0 /* AberrPackage */,
 			);
-			productName = ATMProj;
+			productName = AberrProj;
 			productReference = D4F5A3DF2E5B2C5400326413 /* AberrProj.app */;
 			productType = "com.apple.product-type.application";
 		};

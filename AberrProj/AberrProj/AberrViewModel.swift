@@ -1,6 +1,6 @@
 //
-//  ATMViewModel.swift
-//  ATMProj
+//  AberrViewModel.swift
+//  AberrProj
 //
 //  Created by Philip Gerdes on 22.08.25.
 //

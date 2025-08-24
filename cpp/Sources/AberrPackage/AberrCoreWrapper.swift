@@ -1,4 +1,4 @@
-import AberrWithdrawCpp
+import AberrCore
 
 public struct AberrWrapper {
     private var underlying: Aberr

@@ -1,6 +1,6 @@
 //
-//  ATMProjApp.swift
-//  ATMProj
+//  AberrProjApp.swift
+//  AberrProj
 //
 //  Created by Philip Gerdes on 22.08.25.
 //
