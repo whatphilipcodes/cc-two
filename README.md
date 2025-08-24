@@ -7,15 +7,30 @@
 Bare-bones RAW photo editing software for `iOS`.
 
 
+### Development
+
+> Disclaimer: Development was only tested on `x86_64`. Apple Silicon as development platform might work but is neither tested nor maintained.
+
+`LibRaw` is present as a submodule in this repository. To run a full library compilation and install `cd cpp/` and run:
+
+```sh
+make --build-libs
+```
+
+Afterwards you can use the `open xcodeproj` task to build the ios app (either in simulator or on-device). The pure `make` command will rebuild the swift package and the `cpp` codebase in `Sources/` only.
+
+
 ### Learning Objectives
 
 - [x] getting `swift` and `c++` interop to work in an ios app
-- [ ] importing `libraw` into the project
+- [x] importing `libraw` into the project
   - [x] figuring out git submodules for upgradeability
-  - [ ] build step to integrate with existing pipeline 
+  - [x] build step to integrate with existing pipeline 
 - [ ] handling `RAW image data` in `c++`
+  - [ ] load & decode raw image data using `libraw` 
   - [ ] implementing a simple `exposure control`
   - [ ] implementing a simple `contrast control`
+  - [ ] save 'developed' image to device
 
 ### Time Tracking
 
