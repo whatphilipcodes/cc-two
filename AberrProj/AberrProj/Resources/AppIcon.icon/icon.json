@@ -1,0 +1,82 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : {
+        "automatic-gradient" : "display-p3:0.94902,0.94902,0.94902,1.00000"
+      }
+    },
+    {
+      "appearance" : "dark",
+      "value" : {
+        "automatic-gradient" : "display-p3:0.12549,0.12549,0.12549,1.00000"
+      }
+    }
+  ],
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "fill" : "automatic",
+          "image-name" : "prism.svg",
+          "name" : "prism",
+          "position" : {
+            "scale" : 1.2,
+            "translation-in-points" : [
+              -40,
+              0
+            ]
+          }
+        },
+        {
+          "image-name" : "abberation.svg",
+          "name" : "abberation",
+          "position" : {
+            "scale" : 1.2,
+            "translation-in-points" : [
+              244,
+              0
+            ]
+          }
+        },
+        {
+          "blend-mode-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : "plus-lighter"
+            }
+          ],
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : "automatic"
+            }
+          ],
+          "glass" : true,
+          "image-name" : "beam.svg",
+          "name" : "beam",
+          "position" : {
+            "scale" : 1.2,
+            "translation-in-points" : [
+              -200,
+              0
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
