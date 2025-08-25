@@ -7,7 +7,7 @@
             "command": "open",
             "args": [
                 "-a",
-                "Xcode",
+                "Xcode-beta",
                 "${workspaceFolder}/**/*.xcodeproj"
             ],
             "group": "build",
