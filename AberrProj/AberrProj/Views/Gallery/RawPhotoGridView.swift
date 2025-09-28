@@ -8,11 +8,14 @@ struct RawPhotoGridView: View {
 
   var onPhotoSelected: (UIImage) -> Void
 
+  private let columns: [GridItem] = Array(
+    repeating: .init(.flexible(), spacing: 2),
+    count: 3
+  )
+
   @State private var activeDownloadAssetID: String? = nil
   @State private var downloadProgress: Double = 0.0
   @State private var downloadRequestID: PHImageRequestID? = nil
-
-  private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
 
   var body: some View {
     NavigationStack {
@@ -34,7 +37,7 @@ struct RawPhotoGridView: View {
           }
         }
       }
-      .navigationTitle("Select a RAW Photo")
+      .navigationTitle("Select a RAW Image")
       .navigationBarTitleDisplayMode(.inline)
       .onAppear {
         photoService.checkForPermissionAndFetch()
@@ -86,7 +89,7 @@ struct RawPhotoGridView: View {
         } else {
           let isCancelled = (info?[PHImageCancelledKey] as? NSNumber)?.boolValue ?? false
           if !isCancelled {
-            errorService.show(message: "Failed to download RAW photo.")
+            errorService.show(message: "Failed to download image from iCloud. Try again later.")
           }
         }
       }
@@ -95,7 +98,6 @@ struct RawPhotoGridView: View {
 
   private func cancelCurrentDownload() {
     if let requestID = downloadRequestID {
-      print("Cancelling image request \(requestID)")
       PHImageManager.default().cancelImageRequest(requestID)
     }
     resetDownloadState()

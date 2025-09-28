@@ -12,14 +12,15 @@ struct PhotoGridItemView: View {
 
   var body: some View {
     ZStack {
-      Group {
-        if let image = thumbnail {
-          Image(uiImage: image)
-            .resizable()
-            .scaledToFill()
-        } else {
-          Rectangle().fill(Color.gray.opacity(0.3))
-        }
+        Color.black.opacity(0.9)
+
+      if let image = thumbnail {
+        Image(uiImage: image)
+          .resizable()
+          .scaledToFit()
+      } else {
+        ProgressView()
+          .tint(.white)
       }
 
       if isDownloading {
@@ -31,7 +32,7 @@ struct PhotoGridItemView: View {
         .frame(width: 60, height: 60)
       }
     }
-    .aspectRatio(1, contentMode: .fill)
+    .aspectRatio(1, contentMode: .fit)
     .clipped()
     .onAppear(perform: loadThumbnail)
     .saturation(isDisabled ? 0 : 1)
