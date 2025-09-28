@@ -3,11 +3,12 @@ import SwiftUI
 
 struct PhotoGridItemView: View {
   let asset: PHAsset
-  var onImageReady: (UIImage) -> Void
-  @EnvironmentObject var errorService: ErrorHandlingService
+
+  var isDownloading: Bool
+  var progress: Double
+  var isDisabled: Bool
 
   @State private var thumbnail: UIImage?
-  @State private var downloadProgress: Double? = nil
 
   var body: some View {
     ZStack {
@@ -21,25 +22,20 @@ struct PhotoGridItemView: View {
         }
       }
 
-      if let progress = downloadProgress {
+      if isDownloading {
         ZStack {
-          Circle()
-            .fill(.black.opacity(0.7))
+          Circle().fill(.black.opacity(0.7))
           CircularProgressView(progress: progress)
             .frame(width: 40, height: 40)
         }
         .frame(width: 60, height: 60)
-        .transition(.opacity.animation(.easeInOut))
       }
     }
     .aspectRatio(1, contentMode: .fill)
     .clipped()
     .onAppear(perform: loadThumbnail)
-    .onTapGesture {
-      guard downloadProgress == nil else { return }
-      downloadProgress = 0.0
-      startFullImageDownload()
-    }
+    .saturation(isDisabled ? 0 : 1)
+    .opacity(isDisabled ? 0.5 : 1)
   }
 
   private func loadThumbnail() {
@@ -49,37 +45,6 @@ struct PhotoGridItemView: View {
       options: nil
     ) { image, _ in
       self.thumbnail = image
-    }
-  }
-
-  private func startFullImageDownload() {
-    let manager = PHImageManager.default()
-    let options = PHImageRequestOptions()
-
-    options.isNetworkAccessAllowed = true
-    options.deliveryMode = .highQualityFormat
-    options.resizeMode = .exact
-
-    options.progressHandler = { progress, error, stop, info in
-      DispatchQueue.main.async {
-        self.downloadProgress = progress
-      }
-    }
-
-    manager.requestImage(
-      for: asset,
-      targetSize: PHImageManagerMaximumSize,
-      contentMode: .aspectFit,
-      options: options
-    ) { image, info in
-      DispatchQueue.main.async {
-        self.downloadProgress = nil
-        if let downloadedImage = image {
-          self.onImageReady(downloadedImage)
-        } else {
-          errorService.show(message: "Failed to download image from iCloud. Try again later.")
-        }
-      }
     }
   }
 }
