@@ -43,6 +43,8 @@ Afterwards you can use the `open xcodeproj` task to build the ios app (either in
 | `2025-08-23` | attempting to get `LibRaw` working                                                                     | 8     |
 | `2025-08-24` | finally getting `LibRaw` to compile and build & rough cpp package architecture rework                  | 8     |
 | `2025-08-25` | app icon & switch to xcode                                                                             | 4     |
+| `2025-08-27` | learn ios dev basics                                                                                   | 8     |
+| `2025-09-28` | photo library view                                                                                     | 8     |
 
 
 ### Acknowledgements
