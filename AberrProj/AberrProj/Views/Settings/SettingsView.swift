@@ -13,9 +13,8 @@ struct SettingsView: View {
   }
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       Form {
-        // Export Settings
         Section("Export") {
           Picker(
             "Format",
@@ -48,7 +47,6 @@ struct SettingsView: View {
           )
         }
 
-        // About Section
         Section("About") {
           Button(
             "About Aberr"
