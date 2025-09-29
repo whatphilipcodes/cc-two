@@ -6,23 +6,27 @@ struct EditView: View {
   @State private var selectedImage: UIImage?
   @EnvironmentObject var errorService: ErrorHandlingService
 
+  @State private var exposure: Double = 0.0
+  @State private var temperature: Double = 6500.0
+
   var body: some View {
     NavigationStack {
-      VStack(spacing: 30) {
-
+      VStack(spacing: 0) {
         if let finalImage = selectedImage {
+          Spacer()
           Image(uiImage: finalImage)
             .resizable()
             .scaledToFit()
-            .frame(height: 250)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-          Text("✅ Photo Loaded!")
-            .font(.headline)
-            .foregroundStyle(.green)
+          Spacer()
         } else {
           Image(systemName: "photo.on.rectangle.angled")
             .font(.system(size: 100))
             .foregroundStyle(.gray.opacity(0.4))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+
+        if selectedImage != nil {
+          EditControlsView(exposure: $exposure, temperature: $temperature)
         }
       }
       .sheet(isPresented: $isShowingRawPicker) {
@@ -31,10 +35,12 @@ struct EditView: View {
         }
       }
       .toolbar {
-        ToolbarItemGroup(placement: .navigationBarLeading) {
+        ToolbarItem(placement: .navigationBarLeading) {
           Button("Select") {
             isShowingRawPicker = true
           }
+        }
+        ToolbarItem(placement: .navigationBarTrailing) {
           Button("Export") {
             errorService.show(message: "Export not yet implemented")
           }
@@ -46,4 +52,5 @@ struct EditView: View {
 
 #Preview {
   EditView()
+    .environmentObject(ErrorHandlingService())
 }

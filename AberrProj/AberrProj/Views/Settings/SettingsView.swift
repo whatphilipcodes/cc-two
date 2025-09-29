@@ -33,12 +33,6 @@ struct SettingsView: View {
             .tag(
               "PNG"
             )
-            Text(
-              "TIFF"
-            )
-            .tag(
-              "TIFF"
-            )
           }
           Toggle(
             "Render to Separate File",
