@@ -1,13 +1,13 @@
 import AberrCore
 
-public struct AberrWrapper {
-  private var underlying: Aberr
+public class AberrWrapper {
+    private var aberr: Aberr
 
-  public init() {
-    self.underlying = Aberr()
-  }
+    public init() {
+        self.aberr = Aberr()
+    }
 
-  public func libRawVersionInfo() -> String {
-    String(cString: underlying.getLibRawVersion())
-  }
+    public func libRawVersionInfo() -> String {
+        return String(aberr.getLibRawVersion())
+    }
 }

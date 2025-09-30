@@ -60,6 +60,7 @@ build_one () {
     export LDFLAGS="-arch $ARCH -isysroot $DEVROOT"
 
     "$LIBRAW_DIR/configure" \
+        --disable-lcms \
         --disable-examples \
         --disable-openmp \
         --disable-shared \

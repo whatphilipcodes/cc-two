@@ -1,8 +1,18 @@
 #pragma once
 
+#include <string>
+#include <memory>
+#include "libraw/libraw.h"
+
+#include "DevelopmentPipeline.h"
+
 class Aberr
 {
 public:
-    // Returns the LibRaw version info C string (static from LibRaw).
-    const char *getLibRawVersion() const;
+    Aberr();
+    std::string getLibRawVersion() const;
+
+private:
+    std::unique_ptr<LibRaw> processor;
+    std::unique_ptr<DevelopmentPipeline> pipeline;
 };
