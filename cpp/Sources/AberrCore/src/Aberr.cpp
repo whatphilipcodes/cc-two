@@ -146,8 +146,8 @@ void Aberr::setColorTemperature(float temperature)
     // Clamp temperature to reasonable range
     float temp_k = std::max(2000.0f, std::min(12000.0f, temperature));
 
-    // Use a reference temperature (daylight ~5500K)
-    float reference_temp = 5500.0f;
+    // Use the original color temperature as the reference
+    float reference_temp = original_color_temperature;
 
     float red_mul, green_mul, blue_mul;
 
