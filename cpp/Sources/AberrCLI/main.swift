@@ -60,7 +60,7 @@ guard let newTemp = Float(tempInput) else {
 }
 
 // Validate temperature range
-let clampedTemp = max(2000, min(10000, newTemp))
+let clampedTemp = max(2000, min(50000, newTemp))
 if clampedTemp != newTemp {
     print("Temperature clamped to valid range: \(Int(clampedTemp))K")
 }

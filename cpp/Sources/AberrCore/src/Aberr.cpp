@@ -2,6 +2,8 @@
 #include <libraw/libraw.h>
 #include <iostream>
 #include <cstring>
+#include <cmath>
+#include <algorithm>
 
 // Implement the custom deleter
 void LibRawDeleter::operator()(LibRaw *ptr) const
@@ -65,8 +67,8 @@ bool Aberr::loadRawImage(const char *filepath)
             color_temperature = 2000.0f + (ratio - 0.5f) * 4000.0f;
             if (color_temperature < 2000.0f)
                 color_temperature = 2000.0f;
-            if (color_temperature > 10000.0f)
-                color_temperature = 10000.0f;
+            if (color_temperature > 50000.0f)
+                color_temperature = 50000.0f;
         }
         else
         {
@@ -111,7 +113,7 @@ void Aberr::setColorTemperature(float temperature)
     float temp_diff = std::abs(temperature - original_color_temperature);
     std::cout << "Temperature difference from original: " << temp_diff << "K" << std::endl;
 
-    if (temp_diff < 50.0f)
+    if (temp_diff < 0.5f)
     {
         // Use camera white balance - set all user multipliers to 0 to indicate "use camera WB"
         libraw_processor->imgdata.params.user_mul[0] = 0;
@@ -135,28 +137,47 @@ void Aberr::setColorTemperature(float temperature)
 
     // Normalize to green
     float norm_red = orig_red / orig_green;
+    float norm_green = 1.0f; // Green is always 1.0 after normalization
     float norm_blue = orig_blue / orig_green;
 
-    // Apply color temperature adjustment
-    // Use the original estimated temperature as reference
-    float temp_ratio = temperature / original_color_temperature;
+    // Apply color temperature adjustment using a simpler, more controlled approach
+    // Lower temperatures (2000K) = cooler/bluer, Higher temperatures (10000K) = warmer/redder
+
+    // Clamp temperature to reasonable range
+    float temp_k = std::max(2000.0f, std::min(12000.0f, temperature));
+
+    // Use a reference temperature (daylight ~5500K)
+    float reference_temp = 5500.0f;
 
     float red_mul, green_mul, blue_mul;
 
-    if (temp_ratio < 1.0f)
+    if (temp_k < reference_temp)
     {
-        // Making warmer - increase red, reduce blue
-        red_mul = norm_red * (1.0f + (1.0f - temp_ratio) * 0.5f);
-        green_mul = 1.0f;
-        blue_mul = norm_blue * temp_ratio;
+        // Cooler than daylight - increase blue, decrease red
+        float cool_factor = (reference_temp - temp_k) / (reference_temp - 2000.0f); // 0 to 1
+        red_mul = 1.0f - cool_factor * 0.4f;                                        // Reduce red for cooler tones
+        green_mul = 1.0f;                                                           // Keep green neutral
+        blue_mul = 1.0f + cool_factor * 0.6f;                                       // Increase blue for cooler tones
     }
     else
     {
-        // Making cooler - reduce red, increase blue
-        red_mul = norm_red / temp_ratio;
-        green_mul = 1.0f;
-        blue_mul = norm_blue * (1.0f + (temp_ratio - 1.0f) * 0.5f);
+        // Warmer than daylight - increase red, decrease blue
+        float warm_factor = (temp_k - reference_temp) / (12000.0f - reference_temp); // 0 to 1
+        red_mul = 1.0f + warm_factor * 0.6f;                                         // Increase red for warmer tones
+        green_mul = 1.0f;                                                            // Keep green neutral
+        blue_mul = 1.0f - warm_factor * 0.4f;                                        // Reduce blue for warmer tones
     }
+
+    // Apply the temperature adjustment relative to the original camera multipliers
+    // This preserves the camera's color characteristics while adjusting temperature
+    red_mul = norm_red * red_mul;
+    green_mul = norm_green * green_mul; // Use actual green value, not normalized
+    blue_mul = norm_blue * blue_mul;
+
+    // Normalize relative to green to maintain proper white balance structure
+    red_mul = red_mul / green_mul;
+    blue_mul = blue_mul / green_mul;
+    green_mul = 1.0f;
 
     // Set the white balance multipliers using LibRaw parameters
     libraw_processor->imgdata.params.user_mul[0] = red_mul;
