@@ -23,40 +23,13 @@ if !aberr.loadRawImage(filepath) {
 let currentTemp = aberr.getCurrentColorTemperature()
 print("Input desired color temperature (current: \(Int(currentTemp))K):")
 
-guard let tempInput = readLine(), !tempInput.isEmpty else {
-    print("No temperature specified, using current: \(Int(currentTemp))K")
-    // Use current temperature and continue processing
-    aberr.setColorTemperature(currentTemp)
-    
-    // Process and save the image with current temperature
-    let outputPath = "output_\(Int(currentTemp))K.ppm"
-    print("Processing and saving to: \(outputPath)")
-    
-    if aberr.processAndSave(outputPath) {
-        print("✅ Success! Image processed and saved with original temperature.")
-    } else {
-        print("❌ Error processing image: \(aberr.getLastError())")
-        exit(1)
-    }
-    exit(0)
-}
-
-guard let newTemp = Float(tempInput) else {
-    print("Invalid temperature value, using current: \(Int(currentTemp))K")
-    // Use current temperature and continue processing
-    aberr.setColorTemperature(currentTemp)
-    
-    // Process and save the image with current temperature
-    let outputPath = "output_\(Int(currentTemp))K.ppm"
-    print("Processing and saving to: \(outputPath)")
-    
-    if aberr.processAndSave(outputPath) {
-        print("✅ Success! Image processed and saved with original temperature.")
-    } else {
-        print("❌ Error processing image: \(aberr.getLastError())")
-        exit(1)
-    }
-    exit(0)
+let tempInput = readLine()
+let newTemp: Float
+if let input = tempInput, let parsedTemp = Float(input) {
+    newTemp = parsedTemp
+} else {
+    print("Invalid input, using current temperature: \(Int(currentTemp))K")
+    newTemp = currentTemp
 }
 
 // Validate temperature range
@@ -69,7 +42,7 @@ if clampedTemp != newTemp {
 aberr.setColorTemperature(clampedTemp)
 
 // Step 5: Process and save the image
-let outputPath = "output_\(Int(clampedTemp))K.ppm"
+let outputPath = "output_\(Int(clampedTemp))K.tiff"
 print("Processing and saving to: \(outputPath)")
 
 if aberr.processAndSave(outputPath) {

@@ -211,7 +211,7 @@ bool Aberr::processAndSave(const char *outputPath)
 
     // Set output parameters
     libraw_processor->imgdata.params.output_bps = 8;                        // 8-bit output
-    libraw_processor->imgdata.params.output_tiff = 0;                       // PPM output by default
+    libraw_processor->imgdata.params.output_tiff = 1;                       // TIFF output
     libraw_processor->imgdata.params.use_camera_wb = use_camera_wb ? 1 : 0; // Use camera WB if requested
     libraw_processor->imgdata.params.use_auto_wb = 0;                       // Don't use auto white balance
     libraw_processor->imgdata.params.user_flip = 0;
