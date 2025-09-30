@@ -26,7 +26,7 @@ let package = Package(
       ],
       linkerSettings: [
         .linkedLibrary("z"),
-        .linkedLibrary("lcms2")
+        //.linkedLibrary("lcms2")
       ]
     ),
     // Swift wrapper target
