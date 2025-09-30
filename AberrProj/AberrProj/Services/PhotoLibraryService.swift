@@ -4,6 +4,7 @@ import SwiftUI
 
 class PhotoLibraryService: ObservableObject {
     @Published var rawAssets: [PHAsset] = []
+    @EnvironmentObject var errorService: ErrorHandlingService
 
     func checkForPermissionAndFetch() {
         let status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
@@ -30,7 +31,7 @@ class PhotoLibraryService: ObservableObject {
         )
         
         guard let rawAlbum = fetchResult.firstObject else {
-            print("No RAW smart album found.")
+            errorService.show(message: "No RAW smart album found")
             DispatchQueue.main.async { self.rawAssets = [] }
             return
         }

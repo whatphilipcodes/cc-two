@@ -24,7 +24,6 @@ struct EditView: View {
             .foregroundStyle(.gray.opacity(0.4))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-
         if selectedImage != nil {
           EditControlsView(exposure: $exposure, temperature: $temperature)
         }

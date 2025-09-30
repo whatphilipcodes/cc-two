@@ -102,6 +102,10 @@ struct SettingsView: View {
               .body
             )
             Text(
+              "v\(viewModel.libRawVersion)"
+            )
+            .font(.system(.caption, design: .monospaced))
+            Text(
               "LibRaw is licensed under the Common Development and Distribution License (CDDL)."
             )
             .font(
