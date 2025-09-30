@@ -1,54 +1,54 @@
 import AberrPackage
 import Foundation
 
-print("=== Aberr CLI - RAW Image Color Temperature Editor ===")
-print("LibRaw Version: \(AberrWrapper().libRawVersionInfo())")
-print()
-
 var aberr = AberrWrapper()
 
-// Step 1: Get input file path
-print("Please enter a filepath (press Enter for test image):")
-let input = readLine()
-let filepath = input?.isEmpty == false ? input! : "./Assets/car.dng"
-print("Loading: \(filepath)")
+print("=== Aberr CLI - RAW Image Color Temperature Editor ===")
+print("LibRaw Version: \(aberr.libRawVersionInfo())")
+print()
 
-// Step 2: Load the raw image
-if !aberr.loadRawImage(filepath) {
-    print("Error loading image: \(aberr.getLastError())")
-    exit(1)
-}
+// // Step 1: Get input file path
+// print("Please enter a filepath (press Enter for test image):")
+// let input = readLine()
+// let filepath = input?.isEmpty == false ? input! : "./Assets/car.dng"
+// print("Loading: \(filepath)")
 
-// Step 3: Get current color temperature and ask for new one
-let currentTemp = aberr.getCurrentColorTemperature()
-print("Input desired color temperature (current: \(Int(currentTemp))K):")
+// // Step 2: Load the raw image
+// if !aberr.loadRawImage(filepath) {
+//     print("Error loading image: \(aberr.getLastError())")
+//     exit(1)
+// }
 
-let tempInput = readLine()
-let newTemp: Float
-if let input = tempInput, let parsedTemp = Float(input) {
-    newTemp = parsedTemp
-} else {
-    print("Invalid input, using current temperature: \(Int(currentTemp))K")
-    newTemp = currentTemp
-}
+// // Step 3: Get current color temperature and ask for new one
+// let currentTemp = aberr.getCurrentColorTemperature()
+// print("Input desired color temperature (current: \(Int(currentTemp))K):")
 
-// Validate temperature range
-let clampedTemp = max(2000, min(50000, newTemp))
-if clampedTemp != newTemp {
-    print("Temperature clamped to valid range: \(Int(clampedTemp))K")
-}
+// let tempInput = readLine()
+// let newTemp: Float
+// if let input = tempInput, let parsedTemp = Float(input) {
+//     newTemp = parsedTemp
+// } else {
+//     print("Invalid input, using current temperature: \(Int(currentTemp))K")
+//     newTemp = currentTemp
+// }
 
-// Step 4: Apply the color temperature
-aberr.setColorTemperature(clampedTemp)
+// // Validate temperature range
+// let clampedTemp = max(2000, min(50000, newTemp))
+// if clampedTemp != newTemp {
+//     print("Temperature clamped to valid range: \(Int(clampedTemp))K")
+// }
 
-// Step 5: Process and save the image
-let outputPath = "output_\(Int(clampedTemp))K.tiff"
-print("Processing and saving to: \(outputPath)")
+// // Step 4: Apply the color temperature
+// aberr.setColorTemperature(clampedTemp)
 
-if aberr.processAndSave(outputPath) {
-    print("✅ Success! Image processed and saved.")
-    print("Color temperature changed from \(Int(currentTemp))K to \(Int(clampedTemp))K")
-} else {
-    print("❌ Error processing image: \(aberr.getLastError())")
-    exit(1)
-}
+// // Step 5: Process and save the image
+// let outputPath = "output_\(Int(clampedTemp))K.tiff"
+// print("Processing and saving to: \(outputPath)")
+
+// if aberr.processAndSave(outputPath) {
+//     print("✅ Success! Image processed and saved.")
+//     print("Color temperature changed from \(Int(currentTemp))K to \(Int(clampedTemp))K")
+// } else {
+//     print("❌ Error processing image: \(aberr.getLastError())")
+//     exit(1)
+// }

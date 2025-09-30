@@ -45,7 +45,8 @@ Afterwards you can use the `open xcodeproj` task to build the ios app (either in
 | `2025-08-25` | app icon & switch to xcode                                                                             | 4     |
 | `2025-08-27` | learn ios dev basics                                                                                   | 8     |
 | `2025-09-28` | photo library view                                                                                     | 6     |
-| `2025-09-28` | edit controls view                                                                                     | 8     |
+| `2025-09-29` | edit controls view                                                                                     | 8     |
+| `2025-09-30` | cpp backend dev                                                                                        | 12    |
 
 
 ### Acknowledgements
