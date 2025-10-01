@@ -28,10 +28,10 @@ struct SettingsView: View {
               "JPEG"
             )
             Text(
-              "PNG"
+              "TIFF"
             )
             .tag(
-              "PNG"
+              "TIFF"
             )
           }
           Toggle(

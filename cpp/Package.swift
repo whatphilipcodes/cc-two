@@ -9,7 +9,6 @@ let package = Package(
     .executable(name: "AberrCLI", targets: ["AberrCLI"]),
   ],
   targets: [
-    // C++ library target
     .binaryTarget(
       name: "LibRaw",
       path:
@@ -25,21 +24,17 @@ let package = Package(
         .define("SWIFT_PACKAGE"),
       ],
       linkerSettings: [
-        .linkedLibrary("z"),
-        //.linkedLibrary("lcms2")
+        .linkedLibrary("z")
       ]
     ),
-    // Swift wrapper target
     .target(
       name: "AberrPackage",
       dependencies: ["AberrCore"],
       path: "Sources/AberrPackage",
       swiftSettings: [
-        // enable C++ interop
         .interoperabilityMode(.Cxx)
       ]
     ),
-    // CLI executable target
     .executableTarget(
       name: "AberrCLI",
       dependencies: ["AberrPackage"],
