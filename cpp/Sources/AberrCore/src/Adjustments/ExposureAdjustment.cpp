@@ -2,9 +2,7 @@
 #include <cmath>
 #include <algorithm>
 
-ExposureAdjustment::ExposureAdjustment(float stops) : exposure_stops(stops)
-{
-}
+ExposureAdjustment::ExposureAdjustment(float stops) : exposure_stops(stops) {}
 
 void ExposureAdjustment::apply(LibRaw &iProcessor)
 {

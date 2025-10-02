@@ -2,9 +2,7 @@
 #include <cmath>
 #include <algorithm>
 
-WhiteBalanceAdjustment::WhiteBalanceAdjustment(float kelvin) : temperature(kelvin)
-{
-}
+WhiteBalanceAdjustment::WhiteBalanceAdjustment(float kelvin) : temperature(kelvin) {}
 
 void WhiteBalanceAdjustment::apply(LibRaw &iProcessor)
 {
