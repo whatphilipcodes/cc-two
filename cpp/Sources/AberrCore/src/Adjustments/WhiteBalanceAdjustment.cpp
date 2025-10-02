@@ -4,7 +4,7 @@
 
 WhiteBalanceAdjustment::WhiteBalanceAdjustment(float kelvin) : temperature(kelvin) {}
 
-void WhiteBalanceAdjustment::apply(LibRaw &iProcessor)
+void WhiteBalanceAdjustment::apply(LibRaw &processor)
 {
     // Apply white balance adjustment based on color temperature
     // Clamp temperature to reasonable range
@@ -33,12 +33,12 @@ void WhiteBalanceAdjustment::apply(LibRaw &iProcessor)
     }
 
     // Set the white balance multipliers
-    iProcessor.imgdata.params.user_mul[0] = red_mul;
-    iProcessor.imgdata.params.user_mul[1] = green_mul;
-    iProcessor.imgdata.params.user_mul[2] = blue_mul;
-    iProcessor.imgdata.params.user_mul[3] = green_mul;
+    processor.imgdata.params.user_mul[0] = red_mul;
+    processor.imgdata.params.user_mul[1] = green_mul;
+    processor.imgdata.params.user_mul[2] = blue_mul;
+    processor.imgdata.params.user_mul[3] = green_mul;
 
     // Disable auto white balance since we're setting it manually
-    iProcessor.imgdata.params.use_auto_wb = 0;
-    iProcessor.imgdata.params.use_camera_wb = 0;
+    processor.imgdata.params.use_auto_wb = 0;
+    processor.imgdata.params.use_camera_wb = 0;
 }

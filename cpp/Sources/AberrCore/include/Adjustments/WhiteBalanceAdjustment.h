@@ -6,7 +6,7 @@ class WhiteBalanceAdjustment : public IAdjustment
 {
 public:
     WhiteBalanceAdjustment(float kelvin);
-    void apply(LibRaw &iProcessor) override;
+    void apply(LibRaw &processor) override;
 
 private:
     float temperature;

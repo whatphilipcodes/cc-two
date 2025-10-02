@@ -6,7 +6,7 @@ class ExposureAdjustment : public IAdjustment
 {
 public:
     ExposureAdjustment(float stops);
-    void apply(LibRaw &iProcessor) override;
+    void apply(LibRaw &processor) override;
 
 private:
     float exposure_stops;

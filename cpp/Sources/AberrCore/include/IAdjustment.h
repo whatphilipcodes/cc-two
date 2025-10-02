@@ -6,5 +6,5 @@ class IAdjustment
 {
 public:
     virtual ~IAdjustment() {}
-    virtual void apply(LibRaw &iProcessor) = 0;
+    virtual void apply(LibRaw &processor) = 0;
 };

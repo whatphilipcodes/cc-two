@@ -19,11 +19,12 @@ public:
     DevelopmentPipeline(DevelopmentPipeline &&) noexcept;
     DevelopmentPipeline &operator=(DevelopmentPipeline &&) noexcept;
 
-    void addAdjustment(std::unique_ptr<IAdjustment> adjustment);
-    void process(LibRaw &iProcessor);
+    void addSensorAdjustmet(std::unique_ptr<IAdjustment> adjustment);
+    void addImageAdjustment(std::unique_ptr<IAdjustment> adjustment);
+    void process(LibRaw &processor);
 
 private:
-    // because the interop layer is issues with complex nested types pimpl is used: https://learn.microsoft.com/en-us/cpp/cpp/pimpl-for-compile-time-encapsulation-modern-cpp?view=msvc-170
+    // because the interop layer has issues with complex nested types pimpl is used: https://learn.microsoft.com/en-us/cpp/cpp/pimpl-for-compile-time-encapsulation-modern-cpp?view=msvc-170
     struct Impl;
     std::unique_ptr<Impl> pimpl;
 };

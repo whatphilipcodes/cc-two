@@ -2,7 +2,8 @@
 
 struct DevelopmentPipeline::Impl
 {
-    std::vector<std::unique_ptr<IAdjustment>> adjustments;
+    std::vector<std::unique_ptr<IAdjustment>> sensorAdjustments;
+    std::vector<std::unique_ptr<IAdjustment>> imageAdjustments;
 };
 
 DevelopmentPipeline::DevelopmentPipeline() : pimpl(std::make_unique<Impl>()) {}
@@ -12,18 +13,33 @@ DevelopmentPipeline::~DevelopmentPipeline() = default;
 DevelopmentPipeline::DevelopmentPipeline(DevelopmentPipeline &&) noexcept = default;
 DevelopmentPipeline &DevelopmentPipeline::operator=(DevelopmentPipeline &&) noexcept = default;
 
-void DevelopmentPipeline::addAdjustment(std::unique_ptr<IAdjustment> adjustment)
+void DevelopmentPipeline::addSensorAdjustmet(std::unique_ptr<IAdjustment> adjustment)
 {
-    pimpl->adjustments.push_back(std::move(adjustment));
+    pimpl->sensorAdjustments.push_back(std::move(adjustment));
 }
 
-void DevelopmentPipeline::process(LibRaw &iProcessor)
+void DevelopmentPipeline::addImageAdjustment(std::unique_ptr<IAdjustment> adjustment)
 {
-    for (const auto &adjustment : pimpl->adjustments)
+    pimpl->imageAdjustments.push_back(std::move(adjustment));
+}
+
+void DevelopmentPipeline::process(LibRaw &processor)
+{
+    for (const auto &adjustment : pimpl->sensorAdjustments)
     {
         if (adjustment)
         {
-            adjustment->apply(iProcessor);
+            adjustment->apply(processor);
+        }
+    }
+
+    processor.raw2image();
+
+    for (const auto &adjustment : pimpl->imageAdjustments)
+    {
+        if (adjustment)
+        {
+            adjustment->apply(processor);
         }
     }
 }

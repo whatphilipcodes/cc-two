@@ -4,7 +4,7 @@
 
 ExposureAdjustment::ExposureAdjustment(float stops) : exposure_stops(stops) {}
 
-void ExposureAdjustment::apply(LibRaw &iProcessor)
+void ExposureAdjustment::apply(LibRaw &processor)
 {
     // Apply exposure adjustment
     // LibRaw uses a brightness multiplier, where 1.0 = no change
@@ -14,5 +14,5 @@ void ExposureAdjustment::apply(LibRaw &iProcessor)
     // Clamp to reasonable range to avoid extreme values
     multiplier = std::max(0.1f, std::min(multiplier, 10.0f));
 
-    iProcessor.imgdata.params.bright = multiplier;
+    processor.imgdata.params.bright = multiplier;
 }

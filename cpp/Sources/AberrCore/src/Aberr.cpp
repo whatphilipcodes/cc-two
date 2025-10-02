@@ -12,3 +12,21 @@ std::string Aberr::getLibRawVersion() const
 {
     return std::string(processor->version());
 }
+
+void Aberr::loadImage(char *image)
+{
+    this->reset();
+    processor->open_file(image);
+    processor->unpack();
+}
+
+void Aberr::getImage() {}
+
+void Aberr::preview() {}
+
+void Aberr::render() {}
+
+void Aberr::reset()
+{
+    processor->recycle();
+}
