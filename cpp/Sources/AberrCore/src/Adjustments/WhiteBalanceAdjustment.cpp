@@ -4,6 +4,12 @@
 
 WhiteBalanceAdjustment::WhiteBalanceAdjustment(float kelvin) : temperature(kelvin) {}
 
+void WhiteBalanceAdjustment::setParameter(float value)
+{
+    this->temperature = value;
+}
+float WhiteBalanceAdjustment::getParameter() const { return temperature; }
+
 void WhiteBalanceAdjustment::apply(LibRaw &processor)
 {
     // Apply white balance adjustment based on color temperature

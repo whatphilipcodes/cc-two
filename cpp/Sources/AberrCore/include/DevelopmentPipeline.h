@@ -3,28 +3,18 @@
 #include <vector>
 #include <memory>
 #include "libraw/libraw.h"
+
 #include "IAdjustment.h"
+#include "Adjustments/ExposureAdjustment.h"
+#include "Adjustments/WhiteBalanceAdjustment.h"
 
 class DevelopmentPipeline
 {
 public:
-    DevelopmentPipeline();
-    ~DevelopmentPipeline();
-
-    // prevent copy operation (pimpl)
-    DevelopmentPipeline(const DevelopmentPipeline &) = delete;
-    DevelopmentPipeline &operator=(const DevelopmentPipeline &) = delete;
-
-    // re-enable move (pimpl: rule of 5 compliance)
-    DevelopmentPipeline(DevelopmentPipeline &&) noexcept;
-    DevelopmentPipeline &operator=(DevelopmentPipeline &&) noexcept;
-
-    void addSensorAdjustmet(std::unique_ptr<IAdjustment> adjustment);
-    void addImageAdjustment(std::unique_ptr<IAdjustment> adjustment);
+    // DevelopmentPipeline();
     void process(LibRaw &processor);
+    ExposureAdjustment exp = ExposureAdjustment(0.0f);
+    WhiteBalanceAdjustment wb = WhiteBalanceAdjustment(5500.0f);
 
 private:
-    // because the interop layer has issues with complex nested types pimpl is used: https://learn.microsoft.com/en-us/cpp/cpp/pimpl-for-compile-time-encapsulation-modern-cpp?view=msvc-170
-    struct Impl;
-    std::unique_ptr<Impl> pimpl;
 };
