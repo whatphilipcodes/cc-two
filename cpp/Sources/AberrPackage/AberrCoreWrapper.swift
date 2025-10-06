@@ -1,4 +1,7 @@
+import Foundation
+
 import AberrCore
+public typealias AdjustmentType = AberrCore.AdjustmentType
 
 public class AberrWrapper {
     private var aberr: Aberr
@@ -13,8 +16,20 @@ public class AberrWrapper {
     
     public func loadImage(from path: String) {
         path.withCString { cPath in
-            aberr.loadImage(UnsafeMutablePointer(mutating: cPath))
+            aberr.loadImageFromFile(UnsafeMutablePointer(mutating: cPath))
         }
+    }
+
+    public func loadImage(from data: Data) {
+        data.withUnsafeBytes { (pointer: UnsafeRawBufferPointer) in
+            if let baseAddress = pointer.baseAddress {
+                aberr.loadImageFromBuffer(baseAddress, data.count)
+            }
+        }
+    }
+
+    public func updateAdjustment(type: AdjustmentType, value: Float) {
+        aberr.updateAdjustment(type, value)
     }
     
     public func getImage() {

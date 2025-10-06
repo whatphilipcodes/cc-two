@@ -1,11 +1,6 @@
 #include "DevelopmentPipeline.h"
 
-// DevelopmentPipeline::DevelopmentPipeline()
-//     : exp(0.0f), wb(5500.0f)
-// {
-// }
-
-void DevelopmentPipeline::process(LibRaw &processor)
+void DevelopmentPipeline::process(LibRaw &processor, ProcessingQuality quality)
 {
     exp.apply(processor);
     wb.apply(processor);
