@@ -35,9 +35,26 @@ void Aberr::loadImageFromBuffer(const void *buffer, size_t size)
     processor->raw2image();
 }
 
-// return the image that is a member of the processor class
-void Aberr::getImage()
+// scope guard pattern: "loan" function -> see AberrCoreWrapper.swift
+void Aberr::withProcessedImage(ImageCallback *callback, void *context)
 {
+    if (!callback)
+    {
+        return;
+    }
+
+    int ret = 0;
+    libraw_processed_image_t *image = processor->dcraw_make_mem_image(&ret);
+
+    if (image)
+    {
+        callback(image, context);
+        LibRaw::dcraw_clear_mem(image);
+    }
+    else
+    {
+        callback(nullptr, context);
+    }
 }
 
 // pass in ui changes
@@ -68,7 +85,7 @@ void Aberr::render()
     pipeline->process(*processor, ProcessingQuality::Render);
 }
 
-// reset utility to clear for new image
+// internal reset utility to clear for new image
 void Aberr::reset()
 {
     processor->recycle();

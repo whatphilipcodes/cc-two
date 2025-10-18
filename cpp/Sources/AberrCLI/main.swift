@@ -28,7 +28,8 @@ aberr.loadImage(from: imagePath)
 print("Image loaded successfully!")
 print()
 
-let whiteBalanceKelvin = readFloatInput(prompt: "Enter white balance kelvin value", defaultValue: 5500)
+let whiteBalanceKelvin = readFloatInput(
+    prompt: "Enter white balance kelvin value", defaultValue: 5500)
 print("Setting white balance to: \(whiteBalanceKelvin)K")
 print()
 
