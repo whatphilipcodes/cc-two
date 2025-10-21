@@ -1,5 +1,16 @@
 #include "Aberr.h"
-// #include <libraw/libraw.h>
+#include <iostream>
+
+// internal error checking utility
+static void check_libraw_error(int ret, const char *operation)
+{
+    if (ret != LIBRAW_SUCCESS)
+    {
+        std::string error_msg = std::string(operation) + ": " + libraw_strerror(ret);
+        std::cerr << "[LibRaw Error] " << error_msg << std::endl;
+        throw std::runtime_error(error_msg);
+    }
+}
 
 Aberr::Aberr()
 {
@@ -17,22 +28,18 @@ std::string Aberr::getLibRawVersion() const
 void Aberr::loadImageFromFile(char *image)
 {
     this->reset();
-    processor->open_file(image);
-    processor->unpack();
-    processor->raw2image(); // for edits with pure sensor data add preprocessing step before this
+    check_libraw_error(processor->open_file(image), "open_file");
+    check_libraw_error(processor->unpack(), "unpack");
+    check_libraw_error(processor->raw2image(), "raw2image");
 }
 
 // PhotoKit (iOS ui) provides a buffer not a filepath
 void Aberr::loadImageFromBuffer(const void *buffer, size_t size)
 {
     this->reset();
-    int ret = processor->open_buffer(buffer, size);
-    if (ret != LIBRAW_SUCCESS)
-    {
-        throw std::runtime_error("updateAdjustment(): Unknown adjustment type");
-    }
-    processor->unpack();
-    processor->raw2image();
+    check_libraw_error(processor->open_buffer(buffer, size), "open_buffer");
+    check_libraw_error(processor->unpack(), "unpack");
+    check_libraw_error(processor->raw2image(), "raw2image");
 }
 
 // scope guard pattern: "loan" function -> see AberrCoreWrapper.swift

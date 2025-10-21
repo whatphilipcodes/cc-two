@@ -23,6 +23,9 @@ let package = Package(
         .headerSearchPath("include"),
         .define("SWIFT_PACKAGE"),
       ],
+      swiftSettings: [
+        .interoperabilityMode(.Cxx)
+      ],  // just for testing
       linkerSettings: [
         .linkedLibrary("z")
       ]

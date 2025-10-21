@@ -22,7 +22,8 @@ print("=== Aberr CLI - RAW Image Editor CXX Functionality Validation ===")
 print("LibRaw Version: \(aberr.libRawVersionInfo())")
 print()
 
-let imagePath = readInput(prompt: "Enter raw image file path", defaultValue: "cpp/Assets/car.dng")
+let imagePath = readInput(
+    prompt: "Enter raw image file path", defaultValue: "../cpp/Assets/car.dng")
 print("Loading image from: \(imagePath)")
 aberr.loadImage(from: imagePath)
 print("Image loaded successfully!")
@@ -43,5 +44,15 @@ aberr.updateAdjustment(type: .Exposure, value: exposureStops)
 
 print("Rendering...")
 aberr.render()
+
+print("Getting processed image...")
+if let processedImage = aberr.getImage() {
+    print("Image dimensions: \(processedImage.width) x \(processedImage.height)")
+    print("Bits per component: \(processedImage.bitsPerComponent)")
+    print("Components per pixel: \(processedImage.componentsPerPixel)")
+    print("Data size: \(processedImage.data.count) bytes")
+} else {
+    print("Failed to get processed image")
+}
 
 print("Processing complete!")
