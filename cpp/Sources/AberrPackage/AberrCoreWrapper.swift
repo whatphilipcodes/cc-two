@@ -41,37 +41,23 @@ public class AberrWrapper {
     }
 
     public func getImage() -> ProcessedImage? {
-        var result: ProcessedImage?
+        var info = ProcessedImageInfo()
 
-        withUnsafeMutablePointer(to: &result) { resultPtr in
-            let callback:
-                @convention(c) (UnsafePointer<libraw_processed_image_t>?, UnsafeMutableRawPointer?)
-                    -> Void = { imagePtr, context in
-                        guard let imagePtr = imagePtr,
-                            let context = context
-                        else {
-                            return
-                        }
+        let imageBytes = aberr.getProcessedImageBytes(&info)
 
-                        let resultPtr = context.assumingMemoryBound(
-                            to: Optional<ProcessedImage>.self)
-
-                        var image = imagePtr.pointee
-                        let pixelData = Data(bytes: &image.data, count: Int(image.data_size))
-
-                        resultPtr.pointee = ProcessedImage(
-                            data: pixelData,
-                            width: Int(image.width),
-                            height: Int(image.height),
-                            bitsPerComponent: Int(image.bits),
-                            componentsPerPixel: Int(image.colors)
-                        )
-                    }
-
-            aberr.withProcessedImage(callback, resultPtr)
+        // Convert std::vector to Swift Data
+        var data = Data()
+        for i in 0..<imageBytes.size() {
+            data.append(imageBytes[i])
         }
 
-        return result
+        return ProcessedImage(
+            data: data,
+            width: Int(info.width),
+            height: Int(info.height),
+            bitsPerComponent: Int(info.bits),
+            componentsPerPixel: Int(info.colors)
+        )
     }
 
     public func preview() {

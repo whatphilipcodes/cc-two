@@ -2,13 +2,20 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 #include "libraw/libraw.h"
 
 #include "DevelopmentPipeline.h"
 #include "ProcessingTypes.h"
 
-// cb def as C-Style fn for interop: https://github.com/swiftlang/swift/issues/77388
-using ImageCallback = void(const libraw_processed_image_t *image, void *context);
+// Simple struct with no pointers - safe for Swift
+struct ProcessedImageInfo
+{
+    unsigned int width;
+    unsigned int height;
+    unsigned int bits;
+    unsigned int colors;
+};
 
 class Aberr
 {
@@ -17,7 +24,10 @@ public:
     std::string getLibRawVersion() const;
     void loadImageFromFile(char *image);
     void loadImageFromBuffer(const void *buffer, size_t size);
-    void withProcessedImage(ImageCallback *callback, void *context);
+
+    // Get image data as vector - safe for Swift interop
+    std::vector<unsigned char> getProcessedImageBytes(ProcessedImageInfo &info);
+
     void updateAdjustment(AdjustmentType type, float value);
     void preview();
     void render();

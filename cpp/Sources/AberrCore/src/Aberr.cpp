@@ -42,26 +42,31 @@ void Aberr::loadImageFromBuffer(const void *buffer, size_t size)
     check_libraw_error(processor->raw2image(), "raw2image");
 }
 
-// scope guard pattern: "loan" function -> see AberrCoreWrapper.swift
-void Aberr::withProcessedImage(ImageCallback *callback, void *context)
+// Get processed image data - copies data into vector for safe Swift interop
+std::vector<unsigned char> Aberr::getProcessedImageBytes(ProcessedImageInfo &info)
 {
-    if (!callback)
-    {
-        return;
-    }
-
     int ret = 0;
     libraw_processed_image_t *image = processor->dcraw_make_mem_image(&ret);
+    check_libraw_error(ret, "dcraw_make_mem_image");
 
-    if (image)
+    if (!image)
     {
-        callback(image, context);
-        LibRaw::dcraw_clear_mem(image);
+        throw std::runtime_error("Failed to create processed image");
     }
-    else
-    {
-        callback(nullptr, context);
-    }
+
+    // Fill in image info
+    info.width = image->width;
+    info.height = image->height;
+    info.bits = image->bits;
+    info.colors = image->colors;
+
+    // Copy data into vector
+    std::vector<unsigned char> result(image->data, image->data + image->data_size);
+
+    // Clean up LibRaw memory
+    LibRaw::dcraw_clear_mem(image);
+
+    return result;
 }
 
 // pass in ui changes
